@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #1a002a, #2b0040);
+  color: white;
+  text-align: center;
+}
+
+header {
+  padding: 30px;
+  background: black;
+}
+
+.glow {
+  color: pink;
+  text-shadow: 0 0 10px hotpink, 0 0 20px purple;
+}
+
+.hero {
+  padding: 60px 20px;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 20px;
+  background: hotpink;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 15px hotpink;
+}
+
+button:hover {
+  background: purple;
+}
+
+section {
+  padding: 40px 20px;
+}
+
+footer {
+  background: black;
+  padding: 15px;
+  font-size: 14px;
+}
