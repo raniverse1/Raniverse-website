@@ -1,251 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raniverse Anime Interiors</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raniverse Anime Interiors Advanced</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+body { background: linear-gradient(120deg, #ffe6f0, #d0f0ff); overflow-x:hidden; scroll-behavior:smooth; }
 
-        body {
-            background: linear-gradient(120deg, #ffe6f0, #d0f0ff);
-            color: #333;
-            overflow-x: hidden;
-        }
+/* Sparkle Particles */
+canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 
-        /* Floating sparkles */
-        .sparkle {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: radial-gradient(circle, #fff7f7, #ff69b4);
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: float 10s infinite;
-        }
+/* Header */
+header { background: rgba(255,105,180,0.9); color:white; padding:25px 0; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.2); position:relative; z-index:2; }
+header h1 { font-size:3rem; text-shadow: 0 0 15px #fff, 0 0 25px #ff69b4; animation: glow 2s infinite alternate; }
+@keyframes glow { 0% { text-shadow:0 0 15px #fff,0 0 25px #ff69b4;} 100% { text-shadow:0 0 30px #fff,0 0 50px #ff69b4;} }
 
-        @keyframes float {
-            0% { transform: translateY(0) translateX(0); opacity: 0.8; }
-            50% { transform: translateY(-300px) translateX(50px); opacity: 0.5; }
-            100% { transform: translateY(0) translateX(0); opacity: 0.8; }
-        }
+nav { display:flex; justify-content:center; gap:40px; margin-top:10px; }
+nav a { color:white; text-decoration:none; font-weight:600; font-size:1.2rem; position:relative; }
+nav a::after { content:''; position:absolute; width:0%; height:2px; bottom:-5px; left:0; background-color:#fff; transition:0.3s; }
+nav a:hover::after { width:100%; }
 
-        header {
-            background: rgba(255, 105, 180, 0.9);
-            color: white;
-            padding: 25px 0;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 2;
-        }
+/* Hero */
+.hero { background-image:url('https://images.unsplash.com/photo-1616628186688-4e45c345f94e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080'); background-size:cover; background-attachment:fixed; background-position:center; height:75vh; display:flex; align-items:center; justify-content:center; color:white; text-align:center; position:relative; overflow:hidden; }
+.hero h2 { font-size:3rem; background: rgba(255,182,193,0.4); padding:30px 50px; border-radius:30px; box-shadow:0 0 30px rgba(255,182,193,0.6); animation: floatText 6s ease-in-out infinite; }
+@keyframes floatText { 0%,100% { transform:translateY(0);} 50% { transform:translateY(-15px);} }
 
-        header h1 {
-            font-size: 3rem;
-            text-shadow: 0 0 15px rgba(255,255,255,0.7), 0 0 25px rgba(255,182,193,0.5);
-            animation: glow 2s infinite alternate;
-        }
+/* Services */
+.services { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:30px; padding:60px 40px; z-index:1; position:relative; }
+.service-card { background:rgba(255,255,255,0.95); border-radius:30px; box-shadow:0 8px 25px rgba(0,0,0,0.2); text-align:center; overflow:hidden; transform:translateY(50px); opacity:0; transition:all 0.8s ease; }
+.service-card img { width:100%; border-top-left-radius:30px; border-top-right-radius:30px; transition:transform 0.5s; }
+.service-card:hover img { transform:scale(1.08); }
+.service-card h3 { margin:15px 0 10px; color:#ff69b4; font-size:1.6rem; text-shadow:0 0 8px rgba(255,105,180,0.5);}
+.service-card p { padding:0 20px 20px; font-size:1rem; color:#555; }
+.btn { display:inline-block; padding:12px 25px; margin:15px 0; background:linear-gradient(45deg,#ffb3d9,#ff69b4); color:white; border-radius:30px; text-decoration:none; font-weight:bold; box-shadow:0 0 20px rgba(255,105,180,0.5); transition: transform 0.3s, box-shadow 0.3s; }
+.btn:hover { transform:scale(1.05); box-shadow:0 0 35px rgba(255,105,180,0.8); }
 
-        @keyframes glow {
-            0% { text-shadow: 0 0 15px #fff, 0 0 25px #ff69b4; }
-            100% { text-shadow: 0 0 30px #fff, 0 0 50px #ff69b4; }
-        }
+/* Footer */
+footer { background:#ff69b4; color:white; text-align:center; padding:30px 0; margin-top:50px; position:relative; z-index:2; }
+footer a { color:#fff; font-weight:bold; text-decoration:underline; }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 10px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0%;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #fff;
-            transition: 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            background-image: url('https://images.unsplash.com/photo-1616628186688-4e45c345f94e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080');
-            background-size: cover;
-            background-position: center;
-            height: 75vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            background: rgba(255,182,193,0.4);
-            padding: 30px 50px;
-            border-radius: 30px;
-            box-shadow: 0 0 30px rgba(255,182,193,0.6);
-            animation: floatText 6s ease-in-out infinite;
-        }
-
-        @keyframes floatText {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 60px 40px;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 30px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 12px 35px rgba(255,105,180,0.5);
-        }
-
-        .service-card img {
-            width: 100%;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-            transition: transform 0.5s;
-        }
-
-        .service-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .service-card h3 {
-            margin: 15px 0 10px;
-            color: #ff69b4;
-            font-size: 1.6rem;
-            text-shadow: 0 0 8px rgba(255,105,180,0.5);
-        }
-
-        .service-card p {
-            padding: 0 20px 20px;
-            font-size: 1rem;
-            color: #555;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            margin: 15px 0;
-            background: linear-gradient(45deg, #ffb3d9, #ff69b4);
-            color: white;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 0 20px rgba(255,105,180,0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(255,105,180,0.8);
-        }
-
-        footer {
-            background: #ff69b4;
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 50px;
-            position: relative;
-            z-index: 2;
-        }
-
-        footer a {
-            color: #fff;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-
-    </style>
+</style>
 </head>
 <body>
 
-    <!-- Floating Sparkles -->
-    <div class="sparkle" style="top: 50px; left: 20%; animation-delay: 0s;"></div>
-    <div class="sparkle" style="top: 150px; left: 40%; animation-delay: 2s;"></div>
-    <div class="sparkle" style="top: 200px; left: 60%; animation-delay: 4s;"></div>
-    <div class="sparkle" style="top: 100px; left: 80%; animation-delay: 1s;"></div>
-    <div class="sparkle" style="top: 300px; left: 30%; animation-delay: 3s;"></div>
+<header>
+    <h1>✨ Raniverse Anime Interiors ✨</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-    <header>
-        <h1>✨ Raniverse Anime Interiors ✨</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<section class="hero" id="home">
+    <h2>Magical Spaces, Dreamy Designs</h2>
+</section>
 
-    <section class="hero" id="home">
-        <h2>Magical Spaces, Dreamy Designs</h2>
-    </section>
+<section class="services" id="services">
+    <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=500" alt="Fantasy Living Room">
+        <h3>Fantasy Living Room</h3>
+        <p>Bright, colorful, and whimsical living spaces that bring your imagination to life.</p>
+        <a href="#contact" class="btn">Contact Us</a>
+    </div>
+    <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1616628186688-4e45c345f94e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=500" alt="Dreamy Bedroom">
+        <h3>Dreamy Bedroom</h3>
+        <p>Pastel tones, glowing lights, and magical touches for ultimate cozy comfort.</p>
+        <a href="#contact" class="btn">Contact Us</a>
+    </div>
+    <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1616628186690-5e34c4eb41d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=500" alt="Magical Kitchen">
+        <h3>Magical Kitchen</h3>
+        <p>Playful, colorful kitchens where cooking becomes a joyful and magical experience.</p>
+        <a href="#contact" class="btn">Contact Us</a>
+    </div>
+</section>
 
-    <section class="services" id="services">
-        <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=500" alt="Fantasy Living Room">
-            <h3>Fantasy Living Room</h3>
-            <p>Bright, colorful, and whimsical living spaces that bring your imagination to life.</p>
-            <a href="#contact" class="btn">Contact Us</a>
-        </div>
-        <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1616628186688-4e45c345f94e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=500" alt="Dreamy Bedroom">
-            <h3>Dreamy Bedroom</h3>
-            <p>Pastel tones, glowing lights, and magical touches for ultimate cozy comfort.</p>
-            <a href="#contact" class="btn">Contact Us</a>
-        </div>
-        <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1616628186690-5e34c4eb41d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=500" alt="Magical Kitchen">
-            <h3>Magical Kitchen</h3>
-            <p>Playful, colorful kitchens where cooking becomes a joyful and magical experience.</p>
-            <a href="#contact" class="btn">Contact Us</a>
-        </div>
-    </section>
+<footer id="contact">
+    <p>Contact Us: <a href="mailto:raniverse@example.com">raniverse@example.com</a></p>
+    <p>&copy; 2026 Raniverse Anime Interiors. All rights reserved.</p>
+</footer>
 
-    <footer id="contact">
-        <p>Contact Us: <a href="mailto:raniverse@example.com">raniverse@example.com</a></p>
-        <p>&copy; 2026 Raniverse Anime Interiors. All rights reserved.</p>
-    </footer>
+<script>
+// 🌟 Floating Sparkles Particle Effect
+const canvas = document.createElement('canvas');
+document.body.appendChild(canvas);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const ctx = canvas.getContext('2d');
+let particles = [];
+for(let i=0;i<100;i++){
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*3+1,
+        dx: (Math.random()-0.5)*0.5,
+        dy: (Math.random()-0.5)*0.5
+    });
+}
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(255,182,193,0.8)';
+        ctx.fill();
+        p.x+=p.dx;
+        p.y+=p.dy;
+        if(p.x<0||p.x>canvas.width)p.dx*=-1;
+        if(p.y<0||p.y>canvas.height)p.dy*=-1;
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+
+// 🌟 Scroll fade-in animation for service cards
+const cards = document.querySelectorAll('.service-card');
+window.addEventListener('scroll',()=>{
+    const triggerBottom = window.innerHeight * 0.85;
+    cards.forEach(card=>{
+        const cardTop = card.getBoundingClientRect().top;
+        if(cardTop < triggerBottom){
+            card.style.transform = 'translateY(0)';
+            card.style.opacity = 1;
+        }
+    });
+});
+</script>
 
 </body>
 </html>
